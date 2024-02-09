@@ -10,11 +10,22 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    font-size: small;
+  
 }
 nav ul li {
     margin: 0 10px;
+    font-size: small;
 }
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: smaller;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+    text-align: center;
 }
