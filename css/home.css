@@ -26,7 +26,9 @@
     font-style: normal;
   }
 
-  
+section{
+    height: 100vh;
+}
 #hero{
     display: flex;
     height: 100vh;
@@ -72,4 +74,49 @@
 .title{
     color: rgb(241, 234, 225);
     font-size: 2.5rem;
+}
+.title p{
+    font-size: 1.5rem;
+}
+
+#restraunts{
+    display: flex;
+}
+.restraunts-background{
+    background-color: #EEF5FF;
+    height: 100%;
+}
+.uppertextcontainer{
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2rem;
+}
+.uppertextcontainer h1{
+    font-size: 2.5rem;
+    color: #1d1d1d;
+}
+.uppertextcontainer p{
+    color: #1d1d1d;
+}
+.buttonscontainer{
+    margin-top: 3rem;
+    display: flex;
+    gap: 5rem;
+    flex-direction: column;
+}
+.buttonrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.buttonrow button{
+    background-color:#9EB8D9;
+    padding: 2rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    border-width: 1px;
+}
+.buttonrow button:hover{
+    background-color: #A25772;
+    transition: all 0.3s ease;
 }
