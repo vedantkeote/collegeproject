@@ -1,0 +1,30 @@
+#login{
+    height: 100vh;
+}
+#login header{
+    display: grid;
+}
+.navbar{
+    margin-top: 2rem;
+    justify-self: center;
+    color: rgb(246, 220, 186);
+    font-size: 1.1rem;
+}
+.navbar ul{
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+}
+.navbar ul li{
+    text-decoration: none;
+    list-style-type: none;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: rgb(55, 49, 41);;
+}
+.navbar ul li a:hover{
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+    transition: all 0.3s ease;
+}
