@@ -4,27 +4,79 @@
 #login header{
     display: grid;
 }
-.navbar{
-    margin-top: 2rem;
-    justify-self: center;
-    color: rgb(246, 220, 186);
-    font-size: 1.1rem;
+.loginarea{
+    position: absolute;
+    border-radius: 2rem;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    height: 30rem;
+    width: 30rem;
+    padding: 1rem 2rem;
+    left: 8%;
+    top: 6rem;
+    backdrop-filter: blur(10px);
 }
-.navbar ul{
-    display: flex;
-    gap: 3rem;
-    justify-content: space-between;
+.loginarea h1{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 3rem;
 }
-.navbar ul li{
+.loginarea .inputarea{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 3rem 0;
+}
+.inputarea input{
+    width: 93%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba( 255, 255, 255,.2);
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 0 1rem;
+}
+.inputarea input::placeholder{
+    color: #fff;
+}
+.inputarea span{
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.7rem;
+}
+.loginarea .btn{
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 1rem;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+.loginarea .btn:hover{
+    background: #333;
+    color: #fff;
+}
+.loginarea .registerlink{
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 2.3rem;
+    color: #fff;
+}
+.registerlink p a{
+    color: #fff;
     text-decoration: none;
-    list-style-type: none;
+    font-weight: 600;
 }
-.navbar ul li a{
-    text-decoration: none;
-    color: rgb(55, 49, 41);;
-}
-.navbar ul li a:hover{
+.registerlink p a:hover{
     text-decoration: underline;
-    text-underline-offset: 0.3rem;
-    transition: all 0.3s ease;
 }
