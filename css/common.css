@@ -32,3 +32,26 @@ html{
 section{
     height: 100vh;
 }
+
+.navbar{
+  position: absolute;
+  top: 2%;
+  right: 12%;
+  color: rgb(246, 220, 186);
+  font-size: 1.1rem;
+}
+.navbar ul{
+  display: flex;
+  gap: 1.5rem;
+}
+.navbar ul li{
+  text-decoration: none;
+  list-style-type: none;
+}
+.navbar ul li a{
+  text-decoration: none;
+  color: rgb(55, 49, 41);;
+}
+.navbar ul li a:hover{
+  text-decoration: underline;
+}
