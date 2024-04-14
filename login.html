@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/login.js"></script>
 </head>
 <body>
     <section id="login">
@@ -25,19 +26,38 @@
             </nav>
         </header>
         <div class="loginarea">
-            <form action="#">
+            <form class="loginform" action="#">
                 <h1 class="poppins-medium">Login</h1>
                 <div class="inputarea">
-                    <input type="email" name="email" id="email" placeholder="Enter your email">
-                    <span class="material-symbols-outlined">person</span>
+                    <input type="text" name="username" placeholder="Enter your username">
+                    <span class="material-symbols-outlined loginicons">person</span>
                 </div>
                 <div class="inputarea">
                     <input type="password" name="password" id="password" placeholder="Enter your password">
-                    <span class="material-symbols-outlined">key</span>
+                    <span class="material-symbols-outlined loginicons">lock</span>
                 </div>
                 <button type="submit" class="btn">Login</button>
-                <div class="registerlink">
-                    <p>Dont have an account? <a href="#">Register</a></p>
+                <div class="registerlink poppins-medium">
+                    <p>Dont have an account? <a href="#" onclick="toggle()">Register</a></p>
+                </div>
+            </form>
+            <form class="registerform notactive" action="#">
+                <h1 class="poppins-medium">Register</h1>
+                <div class="registerinputs">
+                    <input type="text" name="username" placeholder="Enter your username">
+                    <span class="material-symbols-outlined loginicons">person</span>
+                </div>
+                <div class="registerinputs">
+                    <input type="email" name="email" placeholder="Enter your email">
+                    <span class="material-symbols-outlined loginicons">mail</span>
+                </div>
+                <div class="registerinputs">
+                    <input type="password" name="password" placeholder="Enter your password">
+                    <span class="material-symbols-outlined loginicons">lock</span>
+                </div>
+                <button type="submit" class="regbtn">Register</button>
+                <div class="loginlink poppins-medium">
+                    <p>Already have an account? <a href="#" onclick="toggle()">Login</a></p>
                 </div>
             </form>
         </div>

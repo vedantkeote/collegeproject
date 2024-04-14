@@ -7,8 +7,8 @@
 .loginarea{
     position: absolute;
     border-radius: 2rem;
-    border-width: 5px;
-    border-color: black;
+    border-width: 3px;
+    border-color: rgb(233, 216, 182);
     border-style: solid;
     height: 30rem;
     width: 30rem;
@@ -21,6 +21,10 @@
     text-align: center;
     margin-top: 1rem;
     font-size: 3rem;
+    color: rgb(233, 216, 182);
+}
+.loginicons{
+    color: rgb(233, 216, 182);
 }
 .loginarea .inputarea{
     position: relative;
@@ -34,27 +38,28 @@
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba( 255, 255, 255,.2);
+    border: 2px solid rgba(196,176,132,.2);
     border-radius: 1rem;
     font-size: 1.5rem;
-    color: #fff;
+    color: rgb(233, 216, 182);
     padding: 0 1rem;
 }
 .inputarea input::placeholder{
-    color: #fff;
+    color: rgb(233, 216, 182);
+    font-size: 1.2rem;
 }
 .inputarea span{
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.7rem;
+    font-size: 1.2rem;
 }
 .loginarea .btn{
     width: 100%;
     height: 2.5rem;
     margin-top: 1rem;
-    background: #fff;
+    background: rgb(233, 216, 182);
     border: none;
     outline: none;
     border-radius: 1.5rem;
@@ -64,19 +69,81 @@
 }
 .loginarea .btn:hover{
     background: #333;
-    color: #fff;
+    color: rgb(233, 216, 182);
 }
 .loginarea .registerlink{
     font-size: 1rem;
     text-align: center;
     margin-top: 2.3rem;
-    color: #fff;
+    color: rgb(233, 216, 182);
 }
 .registerlink p a{
-    color: #fff;
+    color: rgb(233, 216, 182);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
 }
 .registerlink p a:hover{
     text-decoration: underline;
+}
+.loginarea .registerinputs{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 2rem 0;
+}
+.registerinputs input{
+    width: 93%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(196,176,132,.2);
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    color: rgb(233, 216, 182);
+    padding: 0 1rem;
+}
+.registerinputs input::placeholder{
+    color: rgb(233, 216, 182);
+    font-size: 1.2rem;
+}
+.registerinputs span{
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+.regbtn{
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 0.3rem;
+    background: rgb(233, 216, 182);
+    border: none;
+    outline: none;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+.regbtn:hover{
+    background: #333;
+    color: rgb(233, 216, 182);
+}
+.loginarea .loginlink{
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: rgb(233, 216, 182);
+}
+.loginlink p a{
+    color: rgb(233, 216, 182);
+    text-decoration: none;
+    font-weight: 400;
+}
+.loginlink p a:hover{
+    text-decoration: underline;
+}
+.notactive{
+    display: none;
 }
