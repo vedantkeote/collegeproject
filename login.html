@@ -26,6 +26,7 @@
             </nav>
         </header>
         <div class="loginarea">
+            <!-- Login Form -->
             <form class="loginform" action="login.php" method="post">
                 <h1 class="poppins-medium">Login</h1>
                 <div class="inputarea">
@@ -36,11 +37,12 @@
                     <input type="password" name="password" id="password" placeholder="Enter your password">
                     <span class="material-symbols-outlined loginicons">lock</span>
                 </div>
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" name="login" class="btn">Login</button>
                 <div class="registerlink poppins-medium">
-                    <p>Dont have an account? <a href="#" onclick="toggle()">Register</a></p>
+                    <p>Don't have an account? <a href="#" onclick="toggle()">Register</a></p>
                 </div>
             </form>
+            <!-- Registration Form -->
             <form class="registerform notactive" action="login.php" method="post">
                 <h1 class="poppins-medium">Register</h1>
                 <div class="registerinputs">
@@ -55,7 +57,7 @@
                     <input type="password" name="password" placeholder="Enter your password">
                     <span class="material-symbols-outlined loginicons">lock</span>
                 </div>
-                <button type="submit" class="regbtn">Register</button>
+                <button type="submit" name="register" class="regbtn">Register</button>
                 <div class="loginlink poppins-medium">
                     <p>Already have an account? <a href="#" onclick="toggle()">Login</a></p>
                 </div>
