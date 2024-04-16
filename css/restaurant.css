@@ -340,6 +340,10 @@ nav {
   color: var(--text-dark);
 }
 
+.btn a{
+  color: var(--white);
+}
+
 .reservation img {
   display: none;
 }
@@ -406,10 +410,6 @@ nav {
   font-size: 0.9rem;
   color: var(--white);
   text-align: center;
-}
-
-.inactive{
-  display: none;
 }
 
 @media (width > 540px) {
