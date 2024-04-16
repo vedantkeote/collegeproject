@@ -559,3 +559,21 @@ nav {
     gap: 2rem;
   }
 }
+
+
+
+.full_menu {
+  display: grid;
+  gap: 2rem 1rem;
+}
+
+.full_menu{
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.full_menu:hover {
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+}
