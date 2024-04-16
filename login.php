@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$database = "dinewise"; 
+$servername = "localhost";
+$username = "root";
+$password = "abc";
+$database = "dinewise";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM users WHERE custName='$username' AND password='$password'";
+        $sql = "SELECT * FROM users WHERE customer_id='$username' AND password='$password'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $sql = "INSERT INTO customer (custName, custEmail, password) VALUES ('$username', '$email', '$password')";
+        $sql = "INSERT INTO customer (customer_id, email, password) VALUES ('$username', '$email', '$password')";
 
         if ($conn->query($sql) === TRUE) {
          

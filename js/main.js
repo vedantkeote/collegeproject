@@ -1,6 +1,8 @@
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 const menuBtnIcon = menuBtn.querySelector("i");
+const login = document.querySelector('.loginreg')
+const user = document.querySelector('user')
 
 menuBtn.addEventListener("click", (e) => {
   navLinks.classList.toggle("open");

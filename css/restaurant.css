@@ -408,6 +408,10 @@ nav {
   text-align: center;
 }
 
+.inactive{
+  display: none;
+}
+
 @media (width > 540px) {
   .banner__container {
     grid-template-columns: repeat(2, 1fr);
