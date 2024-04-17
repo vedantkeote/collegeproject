@@ -10,6 +10,9 @@
   --header-font-1: "Alfa Slab One", serif;
   --header-font-2: "Bebas Neue", sans-serif;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 * {
   padding: 0;

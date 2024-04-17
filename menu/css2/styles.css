@@ -118,9 +118,11 @@ body {
   align-items: center;
 }
 
-.logo {
+.logo a{
   color: #fff;
   font-weight: bold;
+  text-decoration: none;
+  user-select: none;
 }
 
 .search-bar {
