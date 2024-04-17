@@ -1,13 +1,15 @@
-// DOM Category 
+// DOM Category
 const catg = document.querySelectorAll('.nav-links.category');
 const menus = document.querySelectorAll('.menu');
 const addCart = document.querySelectorAll('.menu button');
 const listOrder = document.querySelector('.order-inner');
 const sidenav = document.querySelector('nav .nav-links');
 
+// Array to store selected objects
+let selectedObjects = [];
 
 Array.from(sidenav.children).forEach(targetMenu => {
-    //  console.log(targetMenu);
+    // console.log(targetMenu);
     targetMenu.addEventListener('click', () => {
         const targetName = targetMenu.firstElementChild.dataset.target;
         const targetPage = document.getElementById(targetName);
@@ -56,8 +58,7 @@ catg.forEach(el => {
 
             if (id == all) {
                 menu.style.display = 'block';
-            }
-            else if (menu.dataset.menu !== id) {
+            } else if (menu.dataset.menu !== id) {
                 menu.style.display = 'none';
             }
         });
@@ -154,12 +155,22 @@ addCart.forEach(el => {
         e.target.append(icCheck);
         e.target.classList.add('active');
         checkOutPrint();
+
+        // Add the selected object to the selectedObjects array
+        const selectedObject = {
+            img: img_Item,
+            price: price_Item,
+            title: tittle_Item
+        };
+        selectedObjects.push(selectedObject);
+        console.log('Selected Objects:', selectedObjects);
     });
 });
 
 
-/**** Count Order Button Event ****/
-// Button Plus
+// Additional Functions
+
+// Function to handle button plus event
 const btnPlusOrder = (event) => {
     const countText = event.target.previousElementSibling;
     let count = event.target.previousElementSibling.firstChild.data;
@@ -169,7 +180,7 @@ const btnPlusOrder = (event) => {
     // console.log(count);
 }
 
-// Button Minus
+// Function to handle button minus event
 const btnMinusOrder = (event) => {
     const countText = event.target.nextElementSibling;
     let count = event.target.nextElementSibling.firstChild.data;
@@ -183,6 +194,7 @@ const btnMinusOrder = (event) => {
     // console.log(count);
 }
 
+// Function to handle button remove event
 const btnRemoveOrder = (event) => {
     const removeOrder = event.target.parentElement.parentElement.parentElement;
     const nameOrderItem = event.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstChild.data;
@@ -195,9 +207,13 @@ const btnRemoveOrder = (event) => {
         }
     });
     checkOutPrint();
-    // console.log(nameOrderItem);
+
+    // Remove the selected object from the selectedObjects array
+    selectedObjects = selectedObjects.filter(obj => obj.title !== nameOrderItem);
+    console.log('Selected Objects:', selectedObjects);
 }
 
+// Function to calculate checkout sum
 const checkOutSum = () => {
     let items = listOrder.querySelectorAll('.order-item');
     let itemCount = listOrder.querySelectorAll('small');
@@ -228,6 +244,7 @@ const checkOutSum = () => {
     return [items, Qty, subTotal, total];
 }
 
+// Function to update checkout information on the page
 const checkOutPrint = () => {
     const [items, qty, subTotal, total] = checkOutSum();
 
@@ -238,10 +255,12 @@ const checkOutPrint = () => {
 
 }
 
+// Function to calculate percentage
 const percent = (number) => {
     return number / 100;
 }
 
+// Function to add class to element(s)
 const addClassElement = (element, className) => {
     if (Array.isArray(element)) {
         for (let i = 0; i < element.length; i++) {
@@ -254,7 +273,7 @@ const addClassElement = (element, className) => {
     return element;
 }
 
-
+// Function to create HTML elements
 const makeElement = (element, count) => {
     let arr = [];
     for (let i = 0; i < count; i++) {
@@ -309,3 +328,31 @@ const makeElement = (element, count) => {
     return arr;
 }
 
+document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+    // Example data for selectedObjects array
+    // const selectedObjects = [
+    //     { img: 'path/to/image1.jpg', price: '$10', title: 'Item 1' },
+    //     { img: 'path/to/image2.jpg', price: '$15', title: 'Item 2' }
+    // ];
+
+    // Send a POST request to store_order.php with selectedObjects data
+    fetch('store_order.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ selectedObjects: selectedObjects })
+    })
+    .then(response => {
+        if (response.ok) {
+            // Order successfully sent to the backend
+            console.log('Order sent to the backend successfully!');
+        } else {
+            // Handle errors
+            console.error('Error sending order to the backend:', response.statusText);
+        }
+    })
+    .catch(error => {
+        console.error('Error sending order:', error);
+    });
+});

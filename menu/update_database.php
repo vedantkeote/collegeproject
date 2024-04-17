@@ -1,36 +1,49 @@
 <?php
-// Retrieve data sent from the form
-// Assuming your form sends data in the POST method
+// Assuming you have a database connection established already
+// Replace 'your_database_host', 'your_database_name', 'your_database_user', and 'your_database_password' with your actual database credentials
+
 $cartItems = $_POST['cartItems'];
 
-// Process and update the database with $cartItems data
-// Example code to update the database
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "restaurant";
+$dbname = "finaldinewise";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$mysqli = new mysqli('localhost', 'root', '', 'finaldinewise');
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_errno) {
+    die("Failed to connect to MySQL: " . $mysqli->connect_error);
 }
 
-// Assuming your database table structure is like this
-// You need to adjust this according to your actual database structure
-foreach ($cartItems as $item) {
-    $name = $item['name'];
-    $price = $item['price'];
-    // Insert item into database
-    $sql = "INSERT INTO cart_items (name, price) VALUES ('$name', '$price')";
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+// Check if the request method is POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Decode JSON data from the request body
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    if (isset($data['selectedObjects']) && is_array($data['selectedObjects'])) {
+        // Assuming you have a table named 'orders' with columns 'id', 'img', 'price', and 'title'
+        $stmt = $mysqli->prepare("INSERT INTO orders (img, price, title) VALUES (?, ?, ?)");
+
+        foreach ($data['selectedObjects'] as $item) {
+            $img = $item['img'];
+            $price = $item['price'];
+            $title = $item['title'];
+
+            $stmt->bind_param('sss', $img, $price, $title);
+            $stmt->execute();
+        }
+
+        $stmt->close();
+        $mysqli->close();
+
+        http_response_code(201);
+        echo json_encode(array("message" => "Order received and stored successfully."));
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        http_response_code(400);
+        echo json_encode(array("message" => "Invalid data format."));
     }
+} else {
+    http_response_code(405);
+    echo json_encode(array("message" => "Method not allowed."));
 }
-
-$conn->close();
 ?>
